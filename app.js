@@ -1,80 +1,90 @@
-// Tela 1 - Pinball
+// Tela 1:
 
-// Botão single player:
+// Botões de modalidade (single/ multi)
 
 const singleUp = document.getElementById('single-up');
 const singleDw = document.getElementById('single-dw');
 const areaSingle = document.querySelector('.area-single');
 
-areaSingle.addEventListener('touchstart', (e) => {
-    e.preventDefault();
+const doubleUp = document.getElementById('double-up');
+const doubleDw = document.getElementById('double-dw');
+const areaDouble = document.querySelector('.area-double');
+
+// Botão confirmar
+
+const confirmBtn1Up = document.getElementById('conf-1-up');
+const confirmBtn1Dw = document.getElementById('conf-1-dw');
+
+// AÇÃO NO BOTÃO - Selecionar o modo de SINGLE PLAYER:
+
+areaSingle.addEventListener('click', () => {
     singleUp.classList.add('hide');
     singleDw.classList.remove('hide');
+    doubleUp.classList.remove('hide');
+    doubleDw.classList.add('hide');
+    confirmBtn1Up.classList.remove('hide');
+    confirmBtn1Dw.classList.add('hide');
 });
 
-areaSingle.addEventListener('touchend', (e) => {
-    e.preventDefault();
+// AÇÃO NO BOTÃO - Selecionar o modo de MULTIPLAYER:
+
+areaDouble.addEventListener('click', () => {
+    doubleUp.classList.add('hide');
+    doubleDw.classList.remove('hide');
     singleUp.classList.remove('hide');
     singleDw.classList.add('hide');
+    confirmBtn1Up.classList.remove('hide');
+    confirmBtn1Dw.classList.add('hide');
 });
 
-// areaPurpleLeft.addEventListener('click', () => {
-//     purpleLeftUp.classList.toggle('hide');
-//     purpleLeftDw.classList.toggle('hide');
-//     setTimeout(() => {
-//         purpleLeftUp.classList.remove('hide');
-//         purpleLeftDw.classList.add('hide');
-//     }, 300);
-// });
+///////////////////////////////////////////////////////////
 
-// Botão roxo direito: 
+let timeoutId;
 
-const purpleRightUp = document.getElementById('right-up');
-const purpleRightDw = document.getElementById('right-dw');
-const areaPurpleRight = document.querySelector('.area-purple-right');
+// Tela 2:
 
-areaPurpleRight.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    purpleRightUp.classList.add('hide');
-    purpleRightDw.classList.remove('hide');
-});
+// Ação do botão GAMEPLAY
 
-areaPurpleRight.addEventListener('touchend', (e) => {
-    e.preventDefault();
-    purpleRightUp.classList.remove('hide');
-    purpleRightDw.classList.add('hide');
-});
+const btnUp = document.getElementById('interact-up');
+const btnDw = document.getElementById('interact-dw');
+const btnArea = document.getElementById('interact-area');
 
-// areaPurpleRight.addEventListener('click', () => {
-//     purpleRightUp.classList.toggle('hide');
-//     purpleRightDw.classList.toggle('hide');
-//     setTimeout(() => {
-//         purpleRightUp.classList.remove('hide');
-//         purpleRightDw.classList.add('hide');
-//     }, 300);
-// });
 
-// Tela 2 - Confirmar
+btnArea.addEventListener('click', () => {
+    btnUp.classList.add('hide');
+    btnDw.classList.remove('hide');
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => {
+        btnUp.classList.remove('hide');
+        btnDw.classList.add('hide');
+    }, 300);
+})
 
-const confirmUp = document.getElementById('conf-up');
-const confirmDw = document.getElementById('conf-dw');
-const confirmArea = document.querySelector('.confirm-area');
-const nicknameInput = document.getElementById('nick');
+///////////////////////////////////////////////////////////
 
-nicknameInput.addEventListener('input', () => {
-    if (nicknameInput.value.length == 3) {
-        confirmUp.classList.remove('hide');
-        confirmDw.classList.add('hide');
+// Tela 3:
+
+// Botão confirmar
+
+const confirmBtn2Up = document.getElementById('conf-2-up');
+const confirmBtn2Dw = document.getElementById('conf-2-dw');
+const nickInput = document.getElementById('nick');
+const confirmArea = document.getElementById('confirm-area');
+
+nickInput.addEventListener('input', () => {
+    if (nickInput.value.length == 3) {
+        confirmBtn2Up.classList.remove('hide');
+        confirmBtn2Dw.classList.add('hide');
     }
 });
 
 confirmArea.addEventListener('click', () => {
-    if (confirmDw.classList.contains('hide')) {
-        confirmUp.classList.add('hide');
-        confirmDw.classList.remove('hide');
-        setTimeout(() => {
-            confirmUp.classList.remove('hide');
-            confirmDw.classList.add('hide');
-        }, 300);
-    }
-});
+    confirmBtn2Up.classList.add('hide')
+    confirmBtn2Dw.classList.remove('hide')
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => {
+        confirmBtn2Up.classList.remove('hide')
+        confirmBtn2Dw.classList.add('hide')
+    }, 300)
+})
+
