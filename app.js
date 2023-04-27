@@ -1,47 +1,21 @@
 // Tela 1 - Pinball
-// Botão verde:
 
-const greenBtnUp = document.getElementById('green-up');
-const greenBtnDw = document.getElementById('green-dw');
-const areaGreen = document.querySelector('.area-green');
+// Botão single player:
 
-areaGreen.addEventListener('touchstart', (e) => {
+const singleUp = document.getElementById('single-up');
+const singleDw = document.getElementById('single-dw');
+const areaSingle = document.querySelector('.area-single');
+
+areaSingle.addEventListener('touchstart', (e) => {
     e.preventDefault();
-    greenBtnUp.classList.add('hide');
-    greenBtnDw.classList.remove('hide');
+    singleUp.classList.add('hide');
+    singleDw.classList.remove('hide');
 });
 
-areaGreen.addEventListener('touchend', (e) => {
+areaSingle.addEventListener('touchend', (e) => {
     e.preventDefault();
-    greenBtnUp.classList.remove('hide');
-    greenBtnDw.classList.add('hide');
-});
-
-// areaGreen.addEventListener('click', () => {
-//     greenBtnUp.classList.toggle('hide');
-//     greenBtnDw.classList.toggle('hide');
-//     setTimeout(() => {
-//         greenBtnUp.classList.remove('hide');
-//         greenBtnDw.classList.add('hide');
-//     }, 300)
-// });
-
-// Botão roxo esquerdo:
-
-const purpleLeftUp = document.getElementById('left-up');
-const purpleLeftDw = document.getElementById('left-dw');
-const areaPurpleLeft = document.querySelector('.area-purple-left');
-
-areaPurpleLeft.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    purpleLeftUp.classList.add('hide');
-    purpleLeftDw.classList.remove('hide');
-});
-
-areaPurpleLeft.addEventListener('touchend', (e) => {
-    e.preventDefault();
-    purpleLeftUp.classList.remove('hide');
-    purpleLeftDw.classList.add('hide');
+    singleUp.classList.remove('hide');
+    singleDw.classList.add('hide');
 });
 
 // areaPurpleLeft.addEventListener('click', () => {
