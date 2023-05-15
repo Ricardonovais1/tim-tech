@@ -14,6 +14,7 @@ const areaDouble = document.querySelector('.area-double');
 
 const confirmBtn1Up = document.getElementById('conf-1-up');
 const confirmBtn1Dw = document.getElementById('conf-1-dw');
+const confirmArea1 = document.getElementById('confirm-area-1');
 
 // AÇÃO NO BOTÃO - Selecionar o modo de SINGLE PLAYER:
 
@@ -36,6 +37,18 @@ areaDouble.addEventListener('click', () => {
     confirmBtn1Up.classList.remove('hide');
     confirmBtn1Dw.classList.add('hide');
 });
+
+// AÇÃO NO BOTÃO CONFIRMAR:
+
+confirmArea1.addEventListener('click', () => {
+    confirmBtn1Up.classList.add('hide')
+    confirmBtn1Dw.classList.remove('hide')
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => {
+        confirmBtn1Up.classList.remove('hide')
+        confirmBtn1Dw.classList.add('hide')
+    }, 300)
+})
 
 ///////////////////////////////////////////////////////////
 
@@ -69,7 +82,7 @@ btnArea.addEventListener('click', () => {
 const confirmBtn2Up = document.getElementById('conf-2-up');
 const confirmBtn2Dw = document.getElementById('conf-2-dw');
 const nickInput = document.getElementById('nick');
-const confirmArea = document.getElementById('confirm-area');
+const confirmArea3 = document.getElementById('confirm-area-3');
 
 nickInput.addEventListener('input', () => {
     if (nickInput.value.length == 3) {
@@ -78,7 +91,7 @@ nickInput.addEventListener('input', () => {
     }
 });
 
-confirmArea.addEventListener('click', () => {
+confirmArea3.addEventListener('click', () => {
     confirmBtn2Up.classList.add('hide')
     confirmBtn2Dw.classList.remove('hide')
     clearTimeout(timeoutId)

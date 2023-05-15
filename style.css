@@ -39,6 +39,11 @@ img {
 
 /* ============== ESTILO GERAL DAS DIVS ================ */
 
+.div-1 {
+  display: flex;
+  flex-direction: column;
+}
+
 :root {
   --input-color: var(--default-tim-blue);
   --font-tim-sans-bold: 'TIMSans-Bold', sans-serif;
@@ -101,7 +106,6 @@ img {
   margin-left: -2rem;
   margin-right: -2rem;
   color: var(--default-tim-blue);
-  text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .bottom-2 {
@@ -139,7 +143,8 @@ img {
 
   .btn-bottom-1 {
     display: flex;
-    margin-bottom: -2rem;
+    margin-bottom: -3rem;
+    margin-top: 6rem;
     justify-content: center;
     margin-left: 1rem;
   }
@@ -176,8 +181,6 @@ img {
     border-color: var(--input-color);
     border-radius: 1rem;
     background-color: #fff;
-    /* box-shadow: 0 0 20px rgba(0,0,0,6); */
-    /* outline: 10px solid #fff;     */
     padding: 20px !important;
     height: 3.5rem;
     width: 15rem;
